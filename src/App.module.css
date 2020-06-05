@@ -8,3 +8,18 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+
+.logo {
+  width: 370px;
+  margin-top: 50px;
+}
+
+/*RESPONSIVIDADE*/
+@media (max-width: 770px) {
+  .container {
+    margin: 0 10%;
+  }
+  .logo {
+    width: 100%;
+  }
+}

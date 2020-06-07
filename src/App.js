@@ -5,6 +5,14 @@ import styles from "./App.module.css";
 import { fetchData } from "./api";
 
 import coronaImage from "./images/covid-logo.png";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: "Comfortaa",
+    fontSize: 14,
+  },
+});
 
 class App extends React.Component {
   state = {
@@ -31,10 +39,12 @@ class App extends React.Component {
 
     return (
       <div className={styles.container}>
-        <img className={styles.logo} src={coronaImage} alt="COVID-19 Logo" />
-        <Cards data={data} />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
+        <ThemeProvider theme={theme}>
+          <img className={styles.logo} src={coronaImage} alt="COVID-19 Logo" />
+          <Cards data={data} />
+          <CountryPicker handleCountryChange={this.handleCountryChange} />
+          <Chart data={data} country={country} />
+        </ThemeProvider>
       </div>
     );
   }
